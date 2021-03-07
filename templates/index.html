@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+   <link href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+
+</head>
+<body>
+  
+
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+       <a class="navbar-brand">
+        <img src="/img/20210127_183453_0000.png" width="80" height="35" alt="" class="d-inline-block align-top">
+       Syper  
+       </a>
+      </li>
+      
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Website Created by us
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="https://hightechtip.com">hightechtip</a>
+          <a class="dropdown-item" href="https://shivamforum.herokuapp.com">Idiscuss forum</a>
+          <a class="dropdown-item" href="https://shivamcorona.netliy.app">Corona virus detail</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">About us</a>
+          <a class="dropdown-item" href="#">Contact us</a>
+        </div>
+      </li>
+     
+    </ul>
+    <div class="form-inline my-2 my-lg-0">
+      <!-- <input class="form-control mr-sm-5" type="search" placeholder="Search" aria-label="Search"> -->
+        <a href="/your"><button class="btn btn-outline-success my-2 my-sm-2" type="submit">Your Post</button></a>
+      <a href="/signin"><button class="btn btn-outline-success my-2 my-sm-2" type="submit">Sign in</button></a>
+      <a href="/login"><button class="btn btn-outline-danger my-2 my-sm-2" type="submit">Login</button></a>
+       <a href="/post"><button class="btn btn-outline-warning my-2 my-sm-2" type="submit">Add Post</button></a>
+      <a href="/logout"><button class="btn btn-outline-primary my-2 my-sm-2" type="submit">Log out</button></a>
+    </div>
+  </div>
+</nav>
+
+
+
+    <!-- Page Header -->
+    <header class="masthead" style="height:84vh; background-image: url('{{ url_for('static', filename='img/home-bg.jpg') }}')">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="site-heading">
+              <h1></h1>
+              <span class="subheading"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+
+<div class="container" style="display: flex;justify-content: space-around;flex-wrap: wrap; padding:1px;">
+    {% for post in posts %}    
+ 
+ <div class="card" style="width:18rem; margin:37px 0px;">
+    <img src="https://source.unsplash.com/700x500/?nature" alt="" class="card-img-top">
+    <div class="card-body">
+      <h5 class="card-title">{{post.topic}}</h5>
+      <p class="card-text"> Posted by <b>{{post.username}}</b> </p>
+      <a href="/show/{{post['_id']}}" class="btn btn-primary">visit</a>
+    </div>
+ </div>
+
+          {% endfor %}
+
+</div>
+
+ <hr>
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <ul class="list-inline text-center">
+              <li class="list-inline-item">
+                <a href="#" target="_blank">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#" target="_blank">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#" target="_blank">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+            </ul>
+            <p style="text-align:center;" class="copyright text-muted">Copyright &copy; TheCodingThunder 2018</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+{% extends "layouts.html" %}
+{% block body %}
+
+
+    <!-- Page Header -->
+      <header class="masthead" style="background-image: url('{{ url_for('static', filename='img/contact-bg.jpg') }}')">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="page-heading">
+              <h1>join with us</h1>
+              <span class="subheading"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+
+
+<div class="container" style="display:flex;flex-wrap:wrap;justify-content:space-around;">
+
+{% for post in data %}
+
+
+ <div class="card" style="width:18rem; margin:37px 0px;">
+    <img src="https://source.unsplash.com/700x500/mountain" alt="" class="card-img-top">
+    <div class="card-body">
+      <h5 class="card-title">{{post.topic}}</h5>
+      <p class="card-text">Posted by <b>{{user}}</b> </p>
+      <a href="/show/{{post['_id']}}" class="btn btn-primary">visit</a>
+    </div>
+ </div>
+
+{% endfor %}
+
+</div>
+
+    {% endblock %}
